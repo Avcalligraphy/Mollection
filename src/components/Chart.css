@@ -1,0 +1,9 @@
+/* Ganti warna value pada sumbu x */
+.chart-container .chartjs-size-monitor .chartjs-render-monitor .chartjs-chart .axis-x .tick span {
+  color: "#ffff"; /* Ubah warna value pada sumbu x menjadi merah */
+}
+
+/* Ganti warna value pada sumbu y */
+.chart-container .chartjs-size-monitor .chartjs-render-monitor .chartjs-chart .axis-y .tick span {
+  color: "#ffff"; /* Ubah warna value pada sumbu y menjadi biru */
+}
