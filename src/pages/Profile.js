@@ -3,11 +3,11 @@ import Label from '../components/Label';
 import TextInput from '../components/TextInput';
 import Button from '../components/Button';
 import AuthenticatedUser from '../Layouts/Authenticated';
+import BottomNavbar from "../Layouts/Authenticated/BottomNavbar";
 
 const Profile = () => {
   return (
-    <AuthenticatedUser>
-      <div className="w-full min-h-screen px-[20px] pt-[72px]">
+      <div className="w-full min-h-screen px-[20px] pt-[72px] pb-[200px] ">
         <div className="flex justify-center items-center">
           <img
             alt="avatar"
@@ -108,7 +108,6 @@ const Profile = () => {
           </div>
         </div>
       </div>
-    </AuthenticatedUser>
   );
 }
 

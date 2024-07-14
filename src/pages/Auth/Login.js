@@ -21,43 +21,13 @@ const Login = () => {
           const userRef = ref(database, `users/${uid}`);
 
           // Dapatkan data pengguna, termasuk role
-          get(userRef).then((snapshot) => {
-            if (snapshot.exists()) {
-              const userData = snapshot.val();
-              const { role } = userData;
-
-              if (role === "banned") {
-                // Jika role adalah "banned", signout pengguna
-                auth.signOut().then(() => {
-                  Swal.fire({
-                    icon: "warning",
-                    confirmButtonColor: "#006A0B",
-                    title: "Akun Anda Diblokir",
-                    text: "Hubungi administrator untuk informasi lebih lanjut.",
-                  });
-                  // Redirect pengguna ke halaman login
-                  <Navigate to="/login" />;
-                });
-              } else {
-                // Role bukan "banned", lanjutkan dengan proses login
-                const timestamp = serverTimestamp();
-                update(ref(database, `users/${uid}/`), {
-                  registeredAt: timestamp,
-                });
-                localStorage.setItem("uid", uid);
-                // Redirect pengguna ke halaman utama atau halaman lain yang sesuai
-                return <App />; // Gantilah dengan halaman yang sesuai
-              }
-            } else {
-              // Data pengguna tidak ditemukan
-              Swal.fire({
-                icon: "error",
-                title: "Data Pengguna Tidak Ditemukan",
-                confirmButtonColor: "#d33",
-                text: "Silakan coba lagi nanti atau hubungi administrator.",
-              });
-            }
+          const timestamp = serverTimestamp();
+          update(ref(database, `users/${uid}/`), {
+            registeredAt: timestamp,
           });
+          localStorage.setItem("uid", uid);
+          // Redirect pengguna ke halaman utama atau halaman lain yang sesuai
+          return <App />; // Gantilah dengan halaman yang sesuai
         })
         .catch((err) => {
           Swal.fire({
@@ -76,7 +46,7 @@ const Login = () => {
       <div className="w-full bg-[url('/public/images/mark.png')] h-[116px] p-[29px] ">
         <div className="flex justify-start items-center gap-[29px]">
           <div
-            className="flex justify-center items-center w-[32px] bg-[#F3BE00] h-[32px] rounded-[10px] "
+            className="flex justify-center items-center w-[32px] bg-[#0D2D56] h-[32px] rounded-[10px] "
             onClick={() => navigate(-1)}
           >
             <img alt="arrow" src="/images/arrow.png" />
@@ -131,7 +101,7 @@ const Login = () => {
           width="w-full"
           text="Masuk"
           height="h-[50px]"
-          color="bg-[#F3BE00] mt-[50px]"
+          color="bg-[#0D2D56] mt-[50px]"
           gap="text-white"
         />
       </div>

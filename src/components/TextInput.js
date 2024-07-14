@@ -19,7 +19,7 @@ export default function TextInput({
       {...props}
       type={type}
       name={name}
-      className={`rounded-2xl placeholder-[#9E6D3E]  py-[13px] sm:text-[18px] text-[17px]  px-7 w-full text-${color} border-2 ${border} bg-transparent hover:border-[#F2B10D] `}
+      className={`rounded-2xl placeholder-[#0D2D56]  py-[13px] sm:text-[18px] text-[17px]  px-7 w-full text-${color} border-2 ${border} bg-transparent hover:border-[#F2B10D] `}
       autoComplete={autoComplete}
       required={required}
       defaultValue={defaultValue}

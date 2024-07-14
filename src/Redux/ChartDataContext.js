@@ -1,4 +1,4 @@
-import { createContext, useContext, useState } from 'react';
+import { createContext, useContext, useState } from "react";
 
 const ChartDataContext = createContext();
 
@@ -7,61 +7,88 @@ export const useChartDataContext = () => {
 };
 
 export const ChartDataProvider = ({ children }) => {
-const [chartData1, setChartData1] = useState({
-  labels: [],
-  datasets: [
-    {
-      data: [],
-      label: "Value",
-      borderColor: "#D32020",
-      backdropColor: "#ffff",
-      backgroundColor: "#ffff",
-      fill: false,
-      cubicInterpolationMode: "monotone",
-      tension: 0.4,
-    },
-  ],
-});
+  const maxDataPoints = 4; // batas jumlah data yang disimpan pada grafik
+
+  const [chartData1, setChartData1] = useState({
+    labels: [],
+    datasets: [
+      {
+        data: [],
+        label: "Value",
+        borderColor: "#D32020",
+        backdropColor: "#ffff",
+        backgroundColor: "#ffff",
+        fill: false,
+        cubicInterpolationMode: "monotone",
+        tension: 0.4,
+      },
+    ],
+  });
 
   const updateChartData1 = (newData) => {
-    setChartData1((prevData) => ({
-      ...prevData,
-      labels: [...prevData.labels, newData.times],
-      datasets: [
-        {
-          ...prevData.datasets[0],
-          data: [...prevData.datasets[0].data, newData.distances],
-        },
-      ],
-    }));
+    const currentTime = new Date().toLocaleTimeString();
+
+    setChartData1((prevData) => {
+      const updatedLabels = [...prevData.labels, currentTime];
+      const updatedData = [...prevData.datasets[0].data, newData.distances];
+
+      if (updatedLabels.length > maxDataPoints) {
+        updatedLabels.shift();
+        updatedData.shift();
+      }
+
+      return {
+        ...prevData,
+        labels: updatedLabels,
+        datasets: [
+          {
+            ...prevData.datasets[0],
+            data: updatedData,
+          },
+        ],
+      };
+    });
   };
-const [chartData2, setChartData2] = useState({
-  labels: [],
-  datasets: [
-    {
-      data: [],
-      label: "Value",
-      borderColor: "#ffff",
-      backdropColor: "#ffff",
-      backgroundColor: "#ffff",
-      fill: false,
-      cubicInterpolationMode: "monotone",
-      tension: 0.4,
-    },
-  ],
-});
+
+  const [chartData2, setChartData2] = useState({
+    labels: [],
+    datasets: [
+      {
+        data: [],
+        label: "Value",
+        borderColor: "#ffff",
+        backdropColor: "#ffff",
+        backgroundColor: "#ffff",
+        fill: false,
+        cubicInterpolationMode: "monotone",
+        tension: 0.4,
+      },
+    ],
+  });
 
   const updateChartData2 = (newData) => {
-    setChartData2((prevData) => ({
-      ...prevData,
-      labels: [...prevData.labels, newData.times],
-      datasets: [
-        {
-          ...prevData.datasets[0],
-          data: [...prevData.datasets[0].data, newData.distances],
-        },
-      ],
-    }));
+    const currentTime = new Date().toLocaleTimeString();
+
+    setChartData2((prevData) => {
+      const updatedLabels = [...prevData.labels, currentTime];
+      const updatedData = [...prevData.datasets[0].data, newData.distances];
+
+      if (updatedLabels.length > maxDataPoints) {
+        updatedLabels.shift();
+        updatedData.shift();
+      }
+
+      return {
+        ...prevData,
+        labels: updatedLabels,
+        datasets: [
+          {
+            ...prevData.datasets[0],
+            data: updatedData,
+          },
+        ],
+      };
+    });
   };
 
   return (

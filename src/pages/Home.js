@@ -113,7 +113,6 @@ const Home = () => {
 
 
   return (
-    <AuthenticatedUser>
       <div className="w-full min-h-screen">
         <div className=" flex gap-4 items-center  px-4  min-h-[160px] bg-gradient-to-b from-[#194979] to-[#0D2D56]">
           <h1 className="text-white font-bold text-[18px] ">MOLECTION</h1>
@@ -133,7 +132,7 @@ const Home = () => {
             d="M0,0L80,42.7C160,85,320,171,480,176C640,181,800,107,960,74.7C1120,43,1280,53,1360,58.7L1440,64L1440,0L1360,0C1280,0,1120,0,960,0C800,0,640,0,480,0C320,0,160,0,80,0L0,0Z"
           ></path>
         </svg>
-        {/* <div className="mt-[-140px] bg-black opacity-[0.8] w-full p-[10px] rounded-tr-[74px] rounded-bl-[74px]">
+        <div className="mt-[-140px] bg-white opacity-[0.8] w-full p-[10px] rounded-tr-[74px] rounded-bl-[74px]">
           <div className="grid grid-cols-1 gap-[10px] rounded-[20px]">
             <div style={{ width: "100%", height: "100%" }}>
               <Grafik
@@ -147,7 +146,7 @@ const Home = () => {
                 updateChartData={updateChartData1} // Gunakan fungsi updateChartData1
                 chartData={chartData1}
               />
-              <Grafik
+              {/* <Grafik
                 color="#D32020"
                 title="Grafik Harga"
                 value="Harga"
@@ -157,35 +156,39 @@ const Home = () => {
                 times={timeReceived}
                 updateChartData={updateChartData2} // Gunakan fungsi updateChartData2
                 chartData={chartData2}
-              />
+              /> */}
             </div>
           </div>
-        </div> */}
-        <div className="mt-[-140px] px-0  opacity-[0.8] w-full  rounded-[20px]">
-          <ApexChart />
         </div>
+        {/* <div className="mt-[-140px] px-0  opacity-[0.8] w-full  rounded-[20px]">
+          <ApexChart />
+        </div> */}
 
         <div className="px-[18px] flex gap-[17px] mt-[36px]">
           <BoxEnergy
-            title="KOMSUMSI ENERGI"
+            title="Konsumsi Energi"
             desc={`${dataBlynk}`}
             image="kWH"
             style="text-blue-500"
           />
           <BoxEnergy
-            title="BIAYA PEMAKAIAN"
+            title="Konsumsi Pemakaian"
             desc={`${formatNumberNew(parseFloat(dataBill))}`}
             image="Rp."
             style="text-red-500"
           />
         </div>
         <div className="grid grid-cols-2 justify-center items-center gap-[20px] mt-[34px] mb-[114px] px-[10px]">
-          <EnergyComponent title={dataVoltage} desc="Voltage" image="voltage" />
-          <EnergyComponent title={dataAmpere} desc="Ampere" image="ampere" />
-          <EnergyComponent title={dataDaya} desc="Watt" image="voltage" />
+          <EnergyComponent
+            title={dataVoltage}
+            desc="Tegangan"
+            image="voltage"
+          />
+          <EnergyComponent title={dataAmpere} desc="Arus" image="ampere" />
+          <EnergyComponent title={dataDaya} desc="Daya" image="voltage" />
           <EnergyComponent
             title={<MyStopwatch statusToggle={statusToggle} />}
-            desc="MENIT"
+            desc="Menit"
             image="time"
           />
           <EnergyComponent
@@ -203,13 +206,12 @@ const Home = () => {
                 </h1>
               </div>
             }
-            desc="TOGGLE"
+            desc="Switch"
             image="switch"
           />
         </div>
-        <BottomNavbar />
       </div>
-    </AuthenticatedUser>
+
   );
 }
 

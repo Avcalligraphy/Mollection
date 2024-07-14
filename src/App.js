@@ -15,6 +15,8 @@ import { onAuthStateChanged } from 'firebase/auth'
 import Register from './pages/Auth/Register'
 import { ChartDataProvider } from './Redux/ChartDataContext'
 import axios from 'axios'
+import BottomNavbar from './Layouts/Authenticated/BottomNavbar'
+import History from './pages/History'
 
 const App = () => {
   const [loginTime, setLoginTime] = useState(null);
@@ -75,87 +77,93 @@ const App = () => {
   }, []);
   return (
     <BrowserRouter>
-        <ChartDataProvider>
-          <div className="  block">
-            <Routes>
-              <Route
-                path="/"
-                element={
-                  <PrivateRoute isAuthenticated={user}>
-                    <Home />
-                  </PrivateRoute>
-                }
-              />
-              <Route
-                path="/landing-page"
-                element={
-                  <Private isAuthenticated={user}>
-                    <LandingPage />
-                  </Private>
-                }
-              />
-              <Route
-                path="/login"
-                element={
-                  <Private isAuthenticated={user}>
-                    <Login />
-                  </Private>
-                }
-              />
-              <Route
-                path="/register"
-                element={
-                  <Private isAuthenticated={user}>
-                    <Register />
-                  </Private>
-                }
-              />
-              <Route
-                path="/wallet"
-                element={
-                  <PrivateRoute isAuthenticated={user}>
-                    <Maps />
-                  </PrivateRoute>
-                }
-              />
-              <Route
-                path="/add-friends"
-                element={
-                  <PrivateRoute isAuthenticated={user}>
-                    <Friends />
-                  </PrivateRoute>
-                }
-              />
-              <Route
-                path="/profile"
-                element={
-                    <Profile />
-                }
-              />
-              <Route
-                path="/notification"
-                element={
-                  <PrivateRoute isAuthenticated={user}>
-                    <Notifcations statusToggle={statusToggle} dataBlynk={dataBlynk} dataBill={dataBill}/>
-                  </PrivateRoute>
-                }
-              />
-              <Route
-                path="/pray"
-                element={
-                  <PrivateRoute isAuthenticated={user}>
-                    <PrayPage />
-                  </PrivateRoute>
-                }
-              />
-            </Routes>
-          </div>
-          {/* <div className="sm:flex hidden justify-center items-center min-h-screen">
+      <ChartDataProvider>
+        <BottomNavbar>
+          <Routes>
+            <Route
+              path="/landing-page"
+              element={
+                <Private isAuthenticated={user}>
+                  <LandingPage />
+                </Private>
+              }
+            />
+            <Route
+              path="/login"
+              element={
+                <Private isAuthenticated={user}>
+                  <Login />
+                </Private>
+              }
+            />
+            <Route
+              path="/register"
+              element={
+                <Private isAuthenticated={user}>
+                  <Register />
+                </Private>
+              }
+            />
+            <Route
+              path="/"
+              element={
+                <PrivateRoute isAuthenticated={user}>
+                  <Home />
+                </PrivateRoute>
+              }
+            />
+            <Route
+              path="/history"
+              element={
+                <PrivateRoute isAuthenticated={user}>
+                  <History dataBlynk={dataBlynk} />
+                </PrivateRoute>
+              }
+            />
+            <Route
+              path="/add-friends"
+              element={
+                <PrivateRoute isAuthenticated={user}>
+                  <Friends />
+                </PrivateRoute>
+              }
+            />
+            <Route
+              path="/profile"
+              element={
+                <PrivateRoute isAuthenticated={user}>
+                  <Profile />
+                </PrivateRoute>
+              }
+            />
+            <Route
+              path="/notification"
+              element={
+                <PrivateRoute isAuthenticated={user}>
+                  <Notifcations
+                    statusToggle={statusToggle}
+                    dataBlynk={dataBlynk}
+                    dataBill={dataBill}
+                  />
+                </PrivateRoute>
+              }
+            />
+            <Route
+              path="/pray"
+              element={
+                <PrivateRoute isAuthenticated={user}>
+                  <PrayPage />
+                </PrivateRoute>
+              }
+            />
+          </Routes>
+        </BottomNavbar>
+        {/* <div className="sm:flex hidden justify-center items-center min-h-screen">
             <h1 className="text-black text-[24px]">
               Hanya dapat di akses pada mobie phone
             </h1>
           </div> */}
-        </ChartDataProvider>
+      </ChartDataProvider>
     </BrowserRouter>
   );
 }

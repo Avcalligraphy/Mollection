@@ -3,16 +3,14 @@ import { getAuth } from "firebase/auth";
 import { getStorage } from "firebase/storage";
 import { getDatabase } from "firebase/database";
 const firebaseConfig = {
-  apiKey: "AIzaSyAAl-klQyX2Ckbf7XtR3uPnKb-f-yC-FMc",
-  authDomain: "infakpro-e046d.firebaseapp.com",
-  databaseURL:
-    "https://infakpro-e046d-default-rtdb.asia-southeast1.firebasedatabase.app",
-  projectId: "infakpro-e046d",
-  storageBucket: "infakpro-e046d.appspot.com",
-  messagingSenderId: "794337216708",
-  appId: "1:794337216708:web:86ccedf4e32cd31bdc2191",
+  apiKey: "AIzaSyDHAj-nfSG9VJ07QhIpUk2lEUVR3w-Ynmo",
+  authDomain: "molection4.firebaseapp.com",
+  databaseURL: "https://molection4-default-rtdb.asia-southeast1.firebasedatabase.app",
+  projectId: "molection4",
+  storageBucket: "molection4.appspot.com",
+  messagingSenderId: "92284057570",
+  appId: "1:92284057570:web:bdfdaa85dfafbd6e23ebbb"
 };
-
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);

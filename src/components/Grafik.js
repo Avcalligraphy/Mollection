@@ -21,12 +21,23 @@ Chart.register(
   Tooltip,
   Legend
 );
-const Grafik = ({ color, title, value, valueX, valueY, distances, times, updateChartData, chartData }) => {
+
+const Grafik = ({
+  color,
+  title,
+  value,
+  valueX,
+  valueY,
+  distances,
+  times,
+  updateChartData,
+  chartData,
+}) => {
   useEffect(() => {
     // Menggunakan updateChartData untuk memperbarui data grafik
     updateChartData({
       times: times,
-      distances: distances
+      distances: distances,
     });
   }, [times, distances]);
 
@@ -38,21 +49,24 @@ const Grafik = ({ color, title, value, valueX, valueY, distances, times, updateC
       title: {
         display: true,
         text: title,
-        color: "#ffff",
+        color: "#000",
+      },
+      legend: {
+        display: false, // Menghilangkan kotak legenda
       },
     },
     scales: {
       x: {
         display: true,
-        color: "#ffff",
+        color: "#000",
         innerWidth: 1,
         title: {
           display: true,
           text: valueX,
-          color: "#ffff",
+          color: "#000",
         },
         ticks: {
-          color: "#ffff",
+          color: "#000",
         },
       },
       y: {
@@ -60,18 +74,21 @@ const Grafik = ({ color, title, value, valueX, valueY, distances, times, updateC
         title: {
           display: true,
           text: valueY,
-          color: "#ffff",
+          color: "#000",
         },
         ticks: {
-          color: "#ffff",
+          color: "#000",
+          stepSize: 2, // Menyesuaikan interval skala y
+          min: 0, // Batas minimum y-axis
+          max: 25, // Batas maksimum y-axis
         },
       },
     },
   };
+
   return (
     <div>
       <Line data={chartData} options={options}></Line>
-      {/* <Line data={chartData2} options={options}></Line> */}
     </div>
   );
 };

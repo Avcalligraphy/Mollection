@@ -21,31 +21,30 @@ const LandingPage = () => {
       {isLoading === true ? (
         <SplashScreen />
       ) : (
-        <div className="flex justify-start items-baseline min-h-screen bg-[url('/public/images/bgImage-1.png')] object-cover px-[53px] pt-[111px]">
-          <div className="w-full">
-            <img
-              alt="logo"
-              src="/images/logo.png"
-              className="w-[74px] h-auto"
-            />
-            <h1 className="max-w-[199px] font-medium text-[24px] mt-[18px]">
-              Selamat Datang Sugeng Rawuh
-            </h1>
-            <h1 className=" font-bold text-[20px] ">꧋ꦱꦸꦒꦼꦁꦫꦮꦸꦃ꧉</h1>
-            <NavLink to="/login">
-              <Button
-                text="Mulai"
-                color="shadow bg-[#F3BE00] shadow-md shadow-black w-full text-white mt-[220px] text-center "
+        <>
+          <div className="flex justify-start items-baseline   px-[53px] pt-[51px]">
+            <div className="w-full">
+              <img
+                alt="logo"
+                src="/images/logo.png"
+                className="w-[50px] h-auto"
               />
-            </NavLink>
-            <NavLink to="/register">
-              <Button
-                text="Daftar"
-                color="shadow bg-[#2928AF] shadow-md shadow-black w-full text-white mt-[20px] text-center "
-              />
-            </NavLink>
+              <h1 className=" font-medium text-[24px] mt-[18px]">
+                Monitoring Electrical Consumption
+              </h1>
+              <h1 className=" font-light text-[16px] text-[#82868E] mt-[10px]">
+                Save your energy, make the world better
+              </h1>
+              <NavLink to="/login">
+                <Button
+                  text="Explore Now"
+                  color="shadow bg-[#2928AF] shadow-md shadow-black  text-white mt-[40px] text-center "
+                />
+              </NavLink>
+            </div>
           </div>
-        </div>
+          <img src="/images/bottomLanding.png" />
+        </>
       )}
     </>
   );

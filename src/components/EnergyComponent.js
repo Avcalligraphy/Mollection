@@ -9,7 +9,7 @@ const EnergyComponent = ({title, image, desc, style}) => {
         </div>
         <h1 className="text-white text-[14px] font-semibold ">{desc}</h1>
       </div>
-      <h1 className="text-white text-[10px] my-2 ">Consume {desc}</h1>
+      <h1 className="text-white text-[10px] my-2 ">{desc === 'Switch' ? '' : 'Konsumsi'} {desc}</h1>
       <h1 className="text-white text-[14px] font-semibold">{title}</h1>
     </div>
   );
