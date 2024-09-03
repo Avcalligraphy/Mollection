@@ -113,7 +113,7 @@ const Home = () => {
 
 
   return (
-      <div className="w-full min-h-screen">
+      <div className="w-full min-h-screen pb-[120px]">
         <div className=" flex gap-4 items-center  px-4  min-h-[160px] bg-gradient-to-b from-[#194979] to-[#0D2D56]">
           <h1 className="text-white font-bold text-[18px] ">MOLECTION</h1>
           <div className="flex gap-1 items-center">

@@ -105,9 +105,9 @@ const Notifcations = ({ statusToggle, dataBlynk, dataBill }) => {
               Rp. {dataBill}
             </h1>
           </div>
-          <div className="mt-[-40px] rounded-t-[50px] bg-[#ffff] w-full pt-[20px] min-h-screen">
-            <h1 className="ml-[30px] font-semibold">Riwayat</h1>
-            <navbar className=" ml-[30px] w-full flex justify-start items-center gap-[10px] pt-[20px]">
+          <div className=" px-[45px] mt-[-40px] rounded-t-[50px] bg-[#ffff] w-full pt-[20px] min-h-screen">
+            <h1 className=" font-semibold">Riwayat</h1>
+            <navbar className=" w-full flex justify-start items-center gap-[10px] pt-[20px]">
               <div className="py-[3px] px-[3px]">
                 <div>
                   <h1 className="font-medium">July</h1>
@@ -115,7 +115,7 @@ const Notifcations = ({ statusToggle, dataBlynk, dataBill }) => {
                 </div>
               </div>
             </navbar>
-            <div className="w-full py-[20px] px-[30px] grid grid-cols-1 gap-[20px]">
+            <div className="w-full py-[20px]  grid grid-cols-1 gap-[20px]">
               {historyData && (
                 <BoxHistory
                   statusToggle={statusToggle}

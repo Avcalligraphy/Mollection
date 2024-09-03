@@ -23,8 +23,8 @@
       "sizes": "16x16"
     }
   ],
-  "start_url": ".",
-  "display": "standalone",
+  "start_url": "https://mollection-app.netlify.app",
+  "display": "/",
   "theme_color": "#000000",
   "background_color": "#000000"
 }

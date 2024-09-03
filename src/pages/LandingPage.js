@@ -30,7 +30,7 @@ const LandingPage = () => {
                 className="w-[50px] h-auto"
               />
               <h1 className=" font-medium text-[24px] mt-[18px]">
-                Monitoring Electrical Consumption
+                SMARTKOST for your easy lfe
               </h1>
               <h1 className=" font-light text-[16px] text-[#82868E] mt-[10px]">
                 Save your energy, make the world better
@@ -38,12 +38,14 @@ const LandingPage = () => {
               <NavLink to="/login">
                 <Button
                   text="Explore Now"
-                  color="shadow bg-[#2928AF] shadow-md shadow-black  text-white mt-[40px] text-center "
+                  color="shadow bg-[#2928AF] shadow-md shadow-black  text-white mt-[40px] text-center  "
                 />
               </NavLink>
             </div>
           </div>
-          <img src="/images/bottomLanding.png" />
+          <div className="flex justify-end items-end h-[550px] ">
+            <img src="/images/bottomLanding.png" />
+          </div>
         </>
       )}
     </>
